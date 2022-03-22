@@ -1,0 +1,53 @@
+<div class="formWrapper" style="border: 1px solid rgba(0, 0, 0, 0.233); ">
+    <div style="margin-left: 20px;">
+        <h2 style="margin-bottom: 0;">Card Entry</h2>
+        <hr style=" margin-bottom: 20px; width: 5%; text-align: left; margin-left: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.151);">
+    </div>
+    <form class="text-sm tablet:w-[unset] w-[45vw]" (submit)="onSubmit()" [formGroup]="form">
+
+        <div style="margin: 10px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; " class="flex flex-wrap justify-center">
+
+            <div style="width: 250px;" class=" my-2">
+                <mat-form-field style="width: 100%;" class="w-full" appearance="outline">
+                    <mat-label>Card Number</mat-label>
+                    <input maxlength="16" (keyup)="onChangeField('cardNumber', $event)" required type="number" matInput formControlName="cardNumber" placeholder="Card Number" />
+                </mat-form-field>
+            </div>
+            <div style="width: 250px;" class=" my-2">
+                <mat-form-field style="width: 100%;" class="w-full" appearance="outline">
+                    <mat-label>Card Holder</mat-label>
+                    <input required (keyup)="onChangeField('cardHolder', $event)" type="text" matInput formControlName="cardHolder" placeholder="Card Holder" />
+                </mat-form-field>
+            </div>
+            <div style="width: 250px;" class=" my-2">
+                <mat-form-field style="width: 100%;" appearance="outline">
+                    <mat-label>Expiry Date</mat-label>
+                    <input matInput (dateChange)="onChangeField('expiryDate', $event)" formControlName="expiryDate" [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+            <div style="width: 250px;" class=" my-2">
+                <mat-form-field style="width: 100%;" class="w-full" appearance="outline">
+                    <mat-label>CVV Number</mat-label>
+                    <input maxlength="3" (keyup)="onChangeField('cvvNumber', $event)" required type="number" matInput formControlName="cvvNumber" placeholder="CVV" />
+                </mat-form-field>
+            </div>
+        </div>
+        <button style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 9px 50px;
+        margin: 0 auto;
+        color: white;
+        font-size: 14px;
+        background-color: black;
+        font-weight: 600;
+        letter-spacing: 1px;
+        
+    " class="bg-background p-1 rounded-sm" type="submit">SAVE</button>
+    </form>
+
+</div>

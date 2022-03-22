@@ -1,0 +1,12 @@
+.formWrapper {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 15px 5px;
+    border-radius: .3em;
+}
+
+@media (min-width: 760px) {
+    .formWrapper {
+        width: 40vw;
+    }
+}
